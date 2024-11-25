@@ -85,7 +85,7 @@
                 <HorizontalStackLayout
                     x:Name="tabBar"
                     Margin="20,5"
-                    BindableLayout.ItemsSource="{Binding ShellContents, Source={x:Reference thisShell}}"
+                    BindableLayout.ItemsSource="{Binding ShellContents, Source={x:Reference thisShell}, x:DataType={x:Type shell:SimpleShell}}"
                     HorizontalOptions="Center"
                     MinimumHeightRequest="40"
                     Spacing="10">
@@ -100,7 +100,7 @@
                                         <DataTrigger.Binding>
                                             <MultiBinding Converter="{StaticResource EqualsConverter}">
                                                 <Binding Path="." />
-                                                <Binding Path="CurrentShellContent" Source="{x:Reference thisShell}" />
+                                                <Binding Path="CurrentShellContent" Source="{x:Reference thisShell}" x:DataType="{x:Type shell:SimpleShell}" />
                                             </MultiBinding>
                                         </DataTrigger.Binding>
                                         <Setter Property="Background" Value="Black" />
@@ -128,7 +128,7 @@
                 FontAttributes="Bold"
                 FontSize="18"
                 HorizontalOptions="Center"
-                Text="{Binding CurrentShellContent.Title, Source={x:Reference thisShell}}"
+                Text="{Binding CurrentShellContent.Title, Source={x:Reference thisShell}, x:DataType={x:Type shell:SimpleShell}}"
                 VerticalOptions="Center" />
             <shell:SimpleNavigationHost Grid.Row="1" />
         </Grid>

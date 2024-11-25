@@ -10,16 +10,19 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
-
-        RefreshShell(MauiProgram.UsedAppShell);
     }
 
     public void RefreshShell(AppShellType type)
     {
-        MainPage = type switch
+        Shell.Current.Window.Page = type switch
         {
             AppShellType.Normal => new NormalAppShell(),
             _ => new PlaygroundAppShell()
         };
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        return new Window(new NormalAppShell());
     }
 }
