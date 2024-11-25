@@ -17,10 +17,10 @@ public partial class AppShell : SimpleToolkit.SimpleShell.SimpleShell
     private async void ShellItemButtonClicked(object sender, EventArgs e)
     {
         var button = sender as Button;
-        var shellItem = button.BindingContext as BaseShellItem;
+        var shellItem = button?.BindingContext as BaseShellItem;
 
         // Navigate to a new tab if it is not the current tab
-        if (!CurrentState.Location.OriginalString.Contains(shellItem.Route))
+        if (shellItem != null && !CurrentState.Location.OriginalString.Contains(shellItem.Route))
             await GoToAsync($"///{shellItem.Route}");
     }
 

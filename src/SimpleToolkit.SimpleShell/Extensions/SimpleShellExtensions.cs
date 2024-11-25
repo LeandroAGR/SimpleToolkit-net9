@@ -39,11 +39,11 @@ public static class SimpleShellExtensions
     public static void SetTransition(
         this Page page,
         Action<SimpleShellTransitionArgs> callback,
-        Func<SimpleShellTransitionArgs, uint> duration = null,
-        Action<SimpleShellTransitionArgs> starting = null,
-        Action<SimpleShellTransitionArgs> finished = null,
-        Func<SimpleShellTransitionArgs, bool> destinationPageInFront = null,
-        Func<SimpleShellTransitionArgs, Easing> easing = null)
+        Func<SimpleShellTransitionArgs, uint>? duration = null,
+        Action<SimpleShellTransitionArgs>? starting = null,
+        Action<SimpleShellTransitionArgs>? finished = null,
+        Func<SimpleShellTransitionArgs, bool>? destinationPageInFront = null,
+        Func<SimpleShellTransitionArgs, Easing>? easing = null)
     {
         page.SetTransition(new SimpleShellTransition(callback, duration, starting, finished, destinationPageInFront, easing));
     }
@@ -62,14 +62,14 @@ public static class SimpleShellExtensions
     /// <param name="easing">Easing of the transition animation.</param>
     public static void SetTransition(
         this Page page,
-        Action<SimpleShellTransitionArgs> switchingCallback = null,
-        Action<SimpleShellTransitionArgs> pushingCallback = null,
-        Action<SimpleShellTransitionArgs> poppingCallback = null,
-        Func<SimpleShellTransitionArgs, uint> duration = null,
-        Action<SimpleShellTransitionArgs> starting = null,
-        Action<SimpleShellTransitionArgs> finished = null,
-        Func<SimpleShellTransitionArgs, bool> destinationPageInFront = null,
-        Func<SimpleShellTransitionArgs, Easing> easing = null)
+        Action<SimpleShellTransitionArgs>? switchingCallback = null,
+        Action<SimpleShellTransitionArgs>? pushingCallback = null,
+        Action<SimpleShellTransitionArgs>? poppingCallback = null,
+        Func<SimpleShellTransitionArgs, uint>? duration = null,
+        Action<SimpleShellTransitionArgs>? starting = null,
+        Action<SimpleShellTransitionArgs>? finished = null,
+        Func<SimpleShellTransitionArgs, bool>? destinationPageInFront = null,
+        Func<SimpleShellTransitionArgs, Easing>? easing = null)
     {
         page.SetTransition(new SimpleShellTransition(args =>
         {
